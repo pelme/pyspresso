@@ -1,9 +1,9 @@
 import time
 
-from pyspresso.lcd import LCD
-from pyspresso.pigpio import pigpio
-from pyspresso.tsic306 import TSIC306
-from pyspresso.relay import Relay
+from ..lcd import LCD
+from ..pigpio import pigpio
+from ..tsic306 import TSIC306
+from ..relay import Relay
 
 
 def main():

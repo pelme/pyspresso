@@ -1,7 +1,7 @@
 import time
 
-from pyspresso.pigpio import pigpio
-from pyspresso.tsic306 import TSIC306
+from ..pigpio import pigpio
+from ..tsic306 import TSIC306
 
 
 def main():

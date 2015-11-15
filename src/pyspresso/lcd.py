@@ -1,6 +1,6 @@
 from itertools import zip_longest
 
-from pyspresso._vendor.Adafruit_CharLCD import Adafruit_CharLCDPlate
+from ._vendor.Adafruit_CharLCD import Adafruit_CharLCDPlate
 
 
 class LCD:
