@@ -1,10 +1,8 @@
 import time
 
 from collections import deque, namedtuple
-from functools import reduce
-from operator import or_
 
-_Reading = namedtuple('_Reading', 'level diff')
+_Reading = namedtuple('_Reading', ['level', 'diff'])
 
 
 def _parity(number):
@@ -62,12 +60,10 @@ class TSIC306:
         return (self._readings[1].diff + self._readings[2].diff) // 2
 
     def _bit(self, reading_idx):
-        return 0 if self._readings[reading_idx].diff > self._strobe_length() else 1
+        return 1 if self._readings[reading_idx].diff < self._strobe_length() else 0
 
     def _byte(self, start_offset):
-
-        byte = reduce(or_, (self._bit(start_offset + bit_num * 2) << (7 - bit_num)
-                            for bit_num in range(8)))
+        byte = sum(self._bit(start_offset + bit_num * 2) << (7 - bit_num) for bit_num in range(8))
 
         expected_parity = self._bit(start_offset + 8 * 2)
         actual_parity = _parity(byte)
