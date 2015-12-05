@@ -43,7 +43,7 @@ class TSIC306:
         else:
             raise BadTemperature('{} is outside of min/max'.format(result))
 
-    def feed(self, level, ticks):
+    def register_level_change(self, level, ticks):
         self._readings.append(_Reading(level=level, diff=ticks - self._last_ticks))
         self._last_ticks = ticks
 
