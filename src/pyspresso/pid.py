@@ -2,8 +2,8 @@ from collections import deque
 
 import datetime
 
-P = 0.028
-I = 0.0013
+P = 0.038
+I = 0.0016
 D = 4.7
 
 
